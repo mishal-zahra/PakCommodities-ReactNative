@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, SafeAreaView, Text } from 'react-native';
-import styles from './footer.style.js';
+import styles from '../styles/footer.style.js';
 
 class Footer extends Component {
 

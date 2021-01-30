@@ -5,11 +5,10 @@ var styles = StyleSheet.create({
   header: {
     flex: 1, 
     flexDirection: 'row',
-    height: '50px'
   },
   headerImg: {
-    width: 50,
-    height: 50,
+    width: 150,
+    height: 70,
     left: 20
   },
   headerText: {
