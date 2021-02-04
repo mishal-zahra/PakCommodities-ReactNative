@@ -4,18 +4,19 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import Header from './layouts/header';
 import Navbar from './layouts/navbar';
 import Footer from './layouts/footer';
+import Home from './components/home';
+// import Routes from './components/routes';
 
 export default function App() {
   return (
-    <View style={{marginTop: 10, flex: 1}}>
+    <View style={{flex: 1}}>
       <ScrollView>
-        {/* <Header/> */}
         <Navbar/>
+        {/* <Routes /> */}
         <ScrollView>
-          {/* Middle content goes here */}
+          <Home/>
         </ScrollView>
       </ScrollView>      
-      <Footer/>
     </View>
   );
 }
