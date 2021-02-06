@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView, Text, FlatList, Button, TouchableOpacity, TextInput } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faDotCircle, faCircle } from '@fortawesome/free-solid-svg-icons'
+import { View, SafeAreaView, Text } from 'react-native';
 import styles from '../styles/home.styles';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 class Home extends Component {
 
     state = {
         dataList: []
     }
+
     componentDidMount = () => {
         var item = {
             item:'Chickpea',
@@ -29,25 +26,6 @@ class Home extends Component {
             dataList: list
         })
     }
-
-
-// HomeScreen() {
-//   return (
-//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Home!</Text>
-//     </View>
-//   );
-// }
-
-// SettingsScreen() {
-//   return (
-//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Settings!</Text>
-//     </View>
-//   );
-// }
-
-// Tab = createMaterialTopTabNavigator();
 
     render() {
         return (

@@ -9,7 +9,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 // import {} from '@fortawesome/react-native-fontawesome'
 // import {} from '@fortawesome/free-brands-svg-icons'
 // import {} from '@fortawesome/free-regular-svg-icons'
-import Register from './register';
+import TermsAndConditions from './termsAndConditions.js';
 
 class Navbar extends Component {
 
@@ -25,7 +25,7 @@ class Navbar extends Component {
                 </View>
                 <View style={styles.middleView}>
                     <ScrollView style={styles.scrollView}>
-                    {this.props.name == 'Register' ? <Register/> : <Home/>}
+                    {this.props.name == 'Terms of Services' ? <TermsAndConditions/> : <Home/>}
                     </ScrollView>
                 </View>
             </SafeAreaView>

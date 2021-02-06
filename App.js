@@ -9,7 +9,6 @@ import {
   Login,
   Register,
   Subscribe,
-  AllRates,
   Pulses,
   Grains,
   FodderSeeds,
@@ -19,7 +18,7 @@ import {
   Guar,
   News,
   Research,
-  TermsAndServices,
+  TermsOfServices,
   Logout
 } from './components';
 
@@ -30,7 +29,6 @@ const DrawerNavigator = createDrawerNavigator({
   Login,
   Register,
   Subscribe,
-  AllRates,
   Pulses,
   Grains,
   FodderSeeds,
@@ -40,7 +38,7 @@ const DrawerNavigator = createDrawerNavigator({
   Guar,
   News,
   Research,
-  TermsAndServices,
+  TermsOfServices,
   Logout
 }, {
   contentComponent: props => 
