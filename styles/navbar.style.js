@@ -10,21 +10,22 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#10ac84'
   },
-  navbarSidemenuIcon: {
+  navbarIcon: {
     margin: 5,
-    color: '#ffffff',
-  },
-  middleView: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    width: '10%'
   },
   navbarText: {
     color: '#ffffff', 
     fontSize: 20, 
     paddingLeft: 30, 
-    paddingTop: 7
-  },  
+    paddingTop: 7,
+    width: '80%'
+  }, 
+  middleView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   scrollView: {
     width: '100%',
   }
