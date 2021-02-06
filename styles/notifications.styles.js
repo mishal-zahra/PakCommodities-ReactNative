@@ -5,6 +5,10 @@ var styles = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
+  clearNotifications: {
+    padding: 10,
+    alignItems: 'flex-end'
+  },
   listItem: {
     backgroundColor: '#ebebeb',
     padding: 10,

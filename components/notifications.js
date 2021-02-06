@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView, Text } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { View, SafeAreaView, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import styles from '../styles/notifications.styles';
 
 class Home extends Component {
@@ -21,9 +22,21 @@ class Home extends Component {
         })
     }
 
+    clearNotifications = () => {
+        console.log("Clearing all notifications")
+        this.setState({
+            dataList: []
+        })
+    }
+
     render() {
         return (
             <SafeAreaView style={styles.container}>
+                <TouchableOpacity style={styles.clearNotifications} onPress={this.clearNotifications}> 
+                    <Text style={{color: 'red'}}> Clear Notifications
+                        <FontAwesomeIcon style={{marginLeft: 7}} icon={faTrash} size={15} color={"red"} />
+                    </Text>
+                </TouchableOpacity>
                 <ScrollView>
                     {this.state.dataList.map(item => {
                         return (
