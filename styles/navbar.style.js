@@ -2,8 +2,11 @@ import { StyleSheet } from'react-native';
 
 var styles = StyleSheet.create({
   // Navbar Styles
-  navbar: {
+  container: {
     flex: 1,
+    backgroundColor: "#FFF"
+  },
+  navbar: {
     flexDirection: 'row',
     backgroundColor: '#10ac84'
   },
@@ -11,14 +14,21 @@ var styles = StyleSheet.create({
     margin: 5,
     color: '#ffffff',
   },
-  navbarAnchors: {
+  middleView: {
     flex: 1,
-    flexDirection: 'row-reverse',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
-  navbarAnchorsText: {
-    margin: 5,
-    fontSize: 10,
-    color: '#ffffff',
+  navbarText: {
+    color: '#ffffff', 
+    fontSize: 20, 
+    paddingLeft: 30, 
+    paddingTop: 7
+  },
+  middleViewText: {
+    color: '#000000',
+    fontSize: 20,
+    fontWeight: "500"
   }
   
 });
