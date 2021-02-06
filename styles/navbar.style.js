@@ -24,13 +24,7 @@ var styles = StyleSheet.create({
     fontSize: 20, 
     paddingLeft: 30, 
     paddingTop: 7
-  },
-  middleViewText: {
-    color: '#000000',
-    fontSize: 20,
-    fontWeight: "500"
-  }
-  
+  },  
 });
 
 export default styles;

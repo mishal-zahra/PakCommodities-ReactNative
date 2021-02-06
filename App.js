@@ -5,6 +5,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import { Dimensions } from 'react-native';
 
 import {
+  HomeScreen,
   LoginScreen,
   RegisterScreen,
   AllRatesScreen,
@@ -22,6 +23,7 @@ import {
 } from './components';
 
 const DrawerNavigator = createDrawerNavigator({
+  HomeScreen,
   LoginScreen,
   RegisterScreen,
   AllRatesScreen,

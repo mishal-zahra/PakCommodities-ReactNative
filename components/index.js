@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './navbar';
 
+export const HomeScreen = ({navigation}) => <Navbar navigation={navigation} name ="Home" />
 export const LoginScreen = ({navigation}) => <Navbar navigation={navigation} name ="Login" />
 export const RegisterScreen = ({navigation}) => <Navbar navigation={navigation} name ="Subscribe" />
 export const AllRatesScreen = ({navigation}) => <Navbar navigation={navigation} name ="All Rates" />
