@@ -42,6 +42,10 @@ var styles = StyleSheet.create({
         color: '#ffffff', 
         fontSize: 10
     },
+    smallerGreenText: {
+        color: '#4fd925', 
+        fontSize: 10
+    },
     rightView: {
         width: '18%', 
         paddingTop: '3%', 

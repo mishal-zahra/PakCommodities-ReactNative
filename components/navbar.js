@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { View, SafeAreaView, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles/navbar.style.js';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faAlignJustify, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faAlignJustify } from '@fortawesome/free-solid-svg-icons'
 import Home from './home';
-import SubscriptionPlans from './subscription-plans';
 import { ScrollView } from 'react-native-gesture-handler';
 // import {} from '@fortawesome/fontawesome-svg-core'
 // import {} from '@fortawesome/react-native-fontawesome'
 // import {} from '@fortawesome/free-brands-svg-icons'
 // import {} from '@fortawesome/free-regular-svg-icons'
+import Login from './login';
 
 class Navbar extends Component {
 
@@ -25,7 +25,7 @@ class Navbar extends Component {
                 </View>
                 <View style={styles.middleView}>
                     <ScrollView style={styles.scrollView}>
-                    {this.props.name == 'Subscribe' ? <SubscriptionPlans/> : <Home/>}
+                    {this.props.name == 'Login' ? <Login/> : <Home/>}
                     </ScrollView>
                 </View>
             </SafeAreaView>

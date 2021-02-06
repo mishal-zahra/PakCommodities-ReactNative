@@ -65,7 +65,7 @@ class Home extends Component {
                                     <Text style={styles.mediumWhiteText}>{item.item}</Text>
                                 </Text> 
                                 <Text style={styles.smallerWhiteText}>{item.date}</Text>
-                                <Text style={styles.smallerWhiteText}>{item.description}</Text>
+                                <Text style={styles.smallerGreenText}>{item.description}</Text>
                             </View> 
                             <View style={styles.rightView} >
                                 <Text style={styles.greenText}>{item.rate}</Text>

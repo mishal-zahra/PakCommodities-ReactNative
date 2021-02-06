@@ -1,69 +1,64 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { SafeAreaView, View, Text, TouchableOpacity, TextInput, Dimensions } from 'react-native';
+import styles from '../styles/login.styles'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+
+const screen = Dimensions.get("screen"); //to set background height same as the screen
 
 class Login extends Component {
+
+    state = {
+        dimensions: screen,
+        showPassword: false
+    };
+
+    togglePasswordVisibility = () => {
+        this.setState({
+            showPassword: !this.state.showPassword
+        })
+    }
 
     render() {
         return (
             // ************************** For Login Form ***********************
 
-            <View style={{backgroundColor: '#656565', height:500}}>
+            <SafeAreaView style={{ backgroundColor: '#656565', height: this.state.dimensions.height }}>
                 <TouchableOpacity>
-                    <Text style={{color:"white", fontSize:18, fontWeight: 'bold', margin: 35, marginBottom: 20}}>Please enter your details to Login</Text>
+                    <Text style={styles.headText}>Please enter your details to Login</Text>
                 </TouchableOpacity>
                 <View>
                     <TextInput 
-                    style={{
-                        width:"80%",
-                        backgroundColor:"#dadbd9",
-                        borderRadius:25,
-                        height:50,
-                        marginBottom:20,
-                        justifyContent:"center",
-                        padding:20,
-                        marginTop: 20,
-                        marginLeft: 35
-                    }} 
-                        placeholder="Email..." 
+                        style={styles.textField} 
+                        placeholder="Email / Username" 
                         placeholderTextColor="#10ac84"
                         // onChangeText={text => this.setState({email:text})}
-                        />
-                        <TextInput 
-                style={{
-                    width:"80%",
-                    backgroundColor:"#dadbd9",
-                    borderRadius:25,
-                    height:50,
-                    marginBottom:20,
-                    justifyContent:"center",
-                    padding:20,
-                    marginLeft: 35
-                }} 
-                    placeholder="Password..." 
-                    placeholderTextColor="#10ac84"
-                    // onChangeText={text => this.setState({email:text})}
                     />
+
+                    <TextInput 
+                        style={styles.textField} 
+                        placeholder="Password" 
+                        placeholderTextColor="#10ac84"
+                        // onChangeText={text => this.setState({email:text})}
+                    />
+                    <TouchableOpacity onPress={this.togglePasswordVisibility}>
+                        {this.state.showPassword ? <FontAwesomeIcon icon={faEye} size={20} color={"black"} /> : <FontAwesomeIcon icon={faEyeSlash} size={20} color={"grey"} />}
+                    </TouchableOpacity>
+                    
+                    
                 </View>
                 <TouchableOpacity>
-                    <Text style={{color:"white", fontSize:14, marginLeft: '30%'}}>Forgot Password?</Text>
+                    <Text style={styles.forgotPassword}>Forgot Password?</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{width:"80%",
-                    backgroundColor:"#10ac84",
-                    borderRadius:25,
-                    height:50,
-                    alignItems:"center",
-                    justifyContent:"center",
-                    marginTop:15,
-                    marginBottom:10,
-                    marginLeft: 35}}>
+                <TouchableOpacity style={styles.loginButton}>
                     <Text style={{color: 'white'}}>LOGIN</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
-                    <Text style={{color:"white", fontSize:14, fontWeight: 'bold', marginLeft: '43%'}}>SignUp</Text>
+                    <Text style={styles.signupButton}>SignUp</Text>
                 </TouchableOpacity>
-            </View>
+            </SafeAreaView>
         )
     }
 }
