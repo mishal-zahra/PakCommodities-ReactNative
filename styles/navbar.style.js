@@ -25,6 +25,9 @@ var styles = StyleSheet.create({
     paddingLeft: 30, 
     paddingTop: 7
   },  
+  scrollView: {
+    width: '100%',
+  }
 });
 
 export default styles;

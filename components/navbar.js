@@ -24,7 +24,7 @@ class Navbar extends Component {
                     <Text style={styles.navbarText}>{this.props.name}</Text>
                 </View>
                 <View style={styles.middleView}>
-                    <ScrollView>
+                    <ScrollView style={styles.scrollView}>
                     {this.props.name == 'Subscribe' ? <SubscriptionPlans/> : <Home/>}
                     </ScrollView>
                 </View>

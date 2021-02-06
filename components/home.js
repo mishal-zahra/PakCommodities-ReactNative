@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, SafeAreaView, Text, FlatList, Button, TouchableOpacity, TextInput } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faDotCircle, faCircle } from '@fortawesome/free-solid-svg-icons'
+import styles from '../styles/home.styles';
 // import { NavigationContainer } from '@react-navigation/native';
 // import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
@@ -50,45 +51,31 @@ class Home extends Component {
 
     render() {
         return (
-            <SafeAreaView>
-                <View>
-                    {this.state.dataList.map(item => {
-                        return (
-                            <View style={{backgroundColor: '#383636', marginTop: 1, flexDirection: 'row',
-                                            justifyContent: 'flex-end', 
-                                            flexWrap: 'wrap',
-                                            alignContent: 'space-around',
-                                            alignItems: 'flex-start'}}>
-
-                                <View style={{width: '20%', backgroundColor: '#656565', paddingTop: '1%', paddingBottom: '2%', paddingLeft: '3%'}}>
-                                    <Text style={{color: '#a6a4a4', fontSize: 10}}>5:30PM</Text>
-                                    <Text style={{color: '#ffffff', fontSize: 14}}>{item.location}</Text>
-                                    <Text style={{color: '#a6a4a4', fontSize: 10}}>28-01-2021</Text>
-                                </View>
-                                <View style={{width: '60%', paddingLeft: '3%', paddingTop: '1%', paddingBottom: '2%'}}>
-                                    <Text style={{color: '#ffffff', display: 'flex'}}>
-                                        <Text style={{color: '#ffffff', fontSize: 14}}>{item.item}</Text>
-                                    </Text> 
-                                    <Text style={{color: '#ffffff', fontSize: 10}}>{item.date}</Text>
-                                    <Text style={{color: '#ffffff', fontSize: 10}}>{item.description}</Text>
-                                </View> 
-                                <View style={{width: '18%', paddingTop: '3%', paddingBottom: '3%'}} >
-                                    <Text style={{color: '#4fd925', fontSize: 12}}>{item.rate}</Text>
-                                    <Text style={{color: '#4fd925', fontSize: 12}}>{item.percentage}%</Text>
-                                </View>  
-                                <View style={{width: '2%', height: '58px', backgroundColor: '#4fd925'}}></View>                         
+            <SafeAreaView style={styles.container}>
+                {this.state.dataList.map(item => {
+                    return (
+                        <View style={styles.listItem}>
+                            <View style={styles.leftView}>
+                                <Text style={styles.smallGreyText}>5:30PM</Text>
+                                <Text style={styles.mediumWhiteText}>{item.location}</Text>
+                                <Text style={styles.smallGreyText}>28-01-2021</Text>
                             </View>
-                        );
-                    })}
-                </View>            
+                            <View style={styles.middleView}>
+                                <Text style={styles.itemText}>
+                                    <Text style={styles.mediumWhiteText}>{item.item}</Text>
+                                </Text> 
+                                <Text style={styles.smallerWhiteText}>{item.date}</Text>
+                                <Text style={styles.smallerWhiteText}>{item.description}</Text>
+                            </View> 
+                            <View style={styles.rightView} >
+                                <Text style={styles.greenText}>{item.rate}</Text>
+                                <Text style={styles.greenText}>{item.percentage}%</Text>
+                            </View>  
+                            <View style={styles.greenDiv}></View>                         
+                        </View>
+                    );
+                })}
             </SafeAreaView>
-            // TEST
-            // <NavigationContainer>
-            // <Tab.Navigator>
-            //     <Tab.Screen name="Home" component={HomeScreen} />
-            //     <Tab.Screen name="Settings" component={SettingsScreen} />
-            // </Tab.Navigator>
-            // </NavigationContainer>
         )
     }
 }

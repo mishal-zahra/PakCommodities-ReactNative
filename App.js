@@ -5,39 +5,43 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import { Dimensions } from 'react-native';
 
 import {
-  HomeScreen,
-  LoginScreen,
-  RegisterScreen,
-  AllRatesScreen,
-  PulsesScreen,
-  GrainsScreen,
-  FodderseedsScreen,
-  SpicesScreen,
-  SugarScreen,
-  OilseedsScreen,
-  GuarScreen,
-  NewsScreen,
-  ResearchScreen,
-  TermsAndServicesScreen,
-  LogoutScreen
+  Home,
+  Login,
+  Register,
+  AllRates,
+  Pulses,
+  Grains,
+  Fodderseeds,
+  Spices,
+  Sugar,
+  Oilseeds,
+  Guar,
+  News,
+  Research,
+  TermsAndServices,
+  Logout
 } from './components';
 
+import Sidebar from './components/sidebar'
+
 const DrawerNavigator = createDrawerNavigator({
-  HomeScreen,
-  LoginScreen,
-  RegisterScreen,
-  AllRatesScreen,
-  PulsesScreen,
-  GrainsScreen,
-  FodderseedsScreen,
-  SpicesScreen,
-  SugarScreen,
-  OilseedsScreen,
-  GuarScreen,
-  NewsScreen,
-  ResearchScreen,
-  TermsAndServicesScreen,
-  LogoutScreen
+  Home,
+  Login,
+  Register,
+  AllRates,
+  Pulses,
+  Grains,
+  Fodderseeds,
+  Spices,
+  Sugar,
+  Oilseeds,
+  Guar,
+  News,
+  Research,
+  TermsAndServices,
+  Logout
+}, {
+  contentComponent: props => <Sidebar {...props} />
 })
 
 export default createAppContainer(DrawerNavigator);
