@@ -9,7 +9,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 // import {} from '@fortawesome/react-native-fontawesome'
 // import {} from '@fortawesome/free-brands-svg-icons'
 // import {} from '@fortawesome/free-regular-svg-icons'
-import Login from './login';
+import Register from './register';
 
 class Navbar extends Component {
 
@@ -25,7 +25,7 @@ class Navbar extends Component {
                 </View>
                 <View style={styles.middleView}>
                     <ScrollView style={styles.scrollView}>
-                    {this.props.name == 'Login' ? <Login/> : <Home/>}
+                    {this.props.name == 'Register' ? <Register/> : <Home/>}
                     </ScrollView>
                 </View>
             </SafeAreaView>

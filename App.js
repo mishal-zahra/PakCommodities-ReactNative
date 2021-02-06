@@ -2,19 +2,20 @@ import React from 'react';
 
 import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { Dimensions } from 'react-native';
+import { ScrollView } from 'react-native';
 
 import {
   Home,
   Login,
   Register,
+  Subscribe,
   AllRates,
   Pulses,
   Grains,
-  Fodderseeds,
+  FodderSeeds,
   Spices,
   Sugar,
-  Oilseeds,
+  OilSeeds,
   Guar,
   News,
   Research,
@@ -28,20 +29,24 @@ const DrawerNavigator = createDrawerNavigator({
   Home,
   Login,
   Register,
+  Subscribe,
   AllRates,
   Pulses,
   Grains,
-  Fodderseeds,
+  FodderSeeds,
   Spices,
   Sugar,
-  Oilseeds,
+  OilSeeds,
   Guar,
   News,
   Research,
   TermsAndServices,
   Logout
 }, {
-  contentComponent: props => <Sidebar {...props} />
+  contentComponent: props => 
+  <ScrollView>
+    <Sidebar {...props} />
+  </ScrollView>
 })
 
 export default createAppContainer(DrawerNavigator);
