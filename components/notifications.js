@@ -33,7 +33,7 @@ class Home extends Component {
         return (
             <SafeAreaView style={styles.container}>
                 <TouchableOpacity style={styles.clearNotifications} onPress={this.clearNotifications}> 
-                    <Text style={{color: 'red'}}> Clear Notifications
+                    <Text style={{color: 'red'}}> Clear all Notifications
                         <FontAwesomeIcon style={{marginLeft: 7}} icon={faTrash} size={15} color={"red"} />
                     </Text>
                 </TouchableOpacity>

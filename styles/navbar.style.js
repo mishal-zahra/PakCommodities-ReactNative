@@ -17,8 +17,8 @@ var styles = StyleSheet.create({
   navbarText: {
     color: '#ffffff', 
     fontSize: 20, 
+    padding: 6,
     paddingLeft: 30, 
-    paddingTop: 7,
     width: '80%'
   }, 
   middleView: {

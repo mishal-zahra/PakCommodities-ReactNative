@@ -46,6 +46,10 @@ var styles = StyleSheet.create({
         color: '#4fd925', 
         fontSize: 10
     },
+    smallerRedText: {
+        color: 'red', 
+        fontSize: 10
+    },
     rightView: {
         width: '18%', 
         paddingTop: '3%', 
@@ -59,6 +63,15 @@ var styles = StyleSheet.create({
         width: '2%', 
         height: '58px', 
         backgroundColor: '#4fd925'
+    },
+    redText: {
+        color: 'red', 
+        fontSize: 12
+    },
+    redDiv: {
+        width: '2%', 
+        height: '58px', 
+        backgroundColor: 'red'
     },
 });
 

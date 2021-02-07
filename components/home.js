@@ -16,6 +16,7 @@ class Home extends Component {
             date:'22-01-2020',
             rate:'10',
             percentage:'2',
+            increase: true
         }
         var list = [];
         for(let i=0; i<15; i++) {
@@ -43,13 +44,28 @@ class Home extends Component {
                                     <Text style={styles.mediumWhiteText}>{item.item}</Text>
                                 </Text> 
                                 <Text style={styles.smallerWhiteText}>{item.date}</Text>
-                                <Text style={styles.smallerGreenText}>{item.description}</Text>
+                                {item.increase ? 
+                                    <Text style={styles.smallerGreenText}>{item.description}</Text> 
+                                    : 
+                                    <Text style={styles.smallerRedText}>{item.description}</Text>
+                                }
+                                
                             </View> 
                             <View style={styles.rightView} >
-                                <Text style={styles.greenText}>{item.rate}</Text>
-                                <Text style={styles.greenText}>{item.percentage}%</Text>
+                                {item.increase ? 
+                                    <View>
+                                        <Text style={styles.greenText}>{item.rate}</Text>
+                                        <Text style={styles.greenText}>{item.percentage}%</Text>
+                                    </View> 
+                                    : 
+                                    <View>
+                                        <Text style={styles.redText}>{item.rate}</Text>
+                                        <Text style={styles.redText}>{item.percentage}%</Text>
+                                    </View>
+                                }
+                                
                             </View>  
-                            <View style={styles.greenDiv}></View>                         
+                                {item.increase? <View style={styles.greenDiv}></View> : <View style={styles.redDiv}></View> }                        
                         </View>
                     );
                 })}
