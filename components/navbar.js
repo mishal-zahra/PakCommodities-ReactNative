@@ -55,11 +55,11 @@ class Navbar extends Component {
                                                 <View>
                                                     {this.props.name == 'Subscribe' ? <SubscriptionPlans/> : 
                                                         <View>
-                                                            {(this.props.name == 'Pulses' || this.props.name == 'Grains' || this.props.name == 'Fodder Seeds' || this.props.name == 'Spices' || this.props.name == 'Sugar' || this.props.name == 'Oil Seeds' || this.props.name == 'Guar' ) ? <Category category={this.props.name}/> :
+                                                            {(this.props.name == 'Pulses' || this.props.name == 'Grains' || this.props.name == 'Fodder Seeds' || this.props.name == 'Spices' || this.props.name == 'Sugar/Gur' || this.props.name == 'Oil Seeds' || this.props.name == 'Guar' ) ? <Category category={this.props.name}/> :
                                                                 <View>
-                                                                    {this.props.name == 'News' ? <News/> :
+                                                                    {this.props.name == 'News' ? <News name={this.props.name}/> :
                                                                         <View>
-                                                                            {this.props.name == 'Research' ? <Research/> :
+                                                                            {this.props.name == 'Research' ? <Research name={this.props.name}/> :
                                                                                 <View>
                                                                                     {this.props.name == 'Terms of Services' ? <TermsAndConditions/> :
                                                                                         <View>

@@ -70,14 +70,9 @@ class Login extends Component {
                     />
                     <TouchableOpacity onPress={this.togglePasswordVisibility}>
                         {this.state.showPassword ? <FontAwesomeIcon icon={faEye} size={20} color={"black"} /> : <FontAwesomeIcon icon={faEyeSlash} size={20} color={"grey"} />}
-                    </TouchableOpacity>
-                    
-                    
+                    </TouchableOpacity>               
                 </View>
-                <TouchableOpacity>
-                    <Text style={styles.forgotPassword}>Forgot Password?</Text>
-                </TouchableOpacity>
-
+            
                 <TouchableOpacity style={styles.loginButton} onPress={this.onLogin}>
                     <Text style={{color: 'white'}}>LOGIN</Text>
                 </TouchableOpacity>                

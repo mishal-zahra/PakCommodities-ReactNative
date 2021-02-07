@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, SafeAreaView, Text } from 'react-native';
 import styles from '../styles/home.styles';
 import { Tabs, TabScreen, useTabIndex, useTabNavigation } from 'react-native-paper-tabs';
+import { getAllRates } from '../services/app.service'
 
 class Home extends Component {
 
@@ -9,7 +10,7 @@ class Home extends Component {
         dataList: [],
     }
 
-    componentDidMount = () => {
+    componentDidMount = async () => {
         var item = {
             item:'Imports',
             location:'Canada',
@@ -27,6 +28,15 @@ class Home extends Component {
         this.setState({
             dataList: list
         })
+        
+        //to fetch data from api
+        // const requestOptions = {
+        //     mehtod: 'GET',
+        //     headers: {'Content-Type' : 'application/json'},
+        // }
+        // const response = await getAllRates(requestOptions);
+        // const allRatesList = await response.json();
+        // console.log("response from getAllRates :: ", response)        
     }
 
     tabPressed = (item) => {
