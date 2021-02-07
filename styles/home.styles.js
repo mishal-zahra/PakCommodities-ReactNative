@@ -15,6 +15,7 @@ var styles = StyleSheet.create({
     },
     leftView: {
         width: '20%', 
+        height: '100%',
         backgroundColor: '#656565', 
         paddingTop: '1%', 
         paddingBottom: '2%', 
@@ -61,7 +62,7 @@ var styles = StyleSheet.create({
     },
     greenDiv: {
         width: '2%', 
-        height: '58px', 
+        height: '100%', 
         backgroundColor: '#4fd925'
     },
     redText: {
@@ -70,9 +71,12 @@ var styles = StyleSheet.create({
     },
     redDiv: {
         width: '2%', 
-        height: '58px', 
+        height: '100%', 
         backgroundColor: 'red'
     },
+    tabBg: {
+        backgroundColor: '#10ac84',
+    }
 });
 
 export default styles;

@@ -36,8 +36,8 @@ class SubscriptionPlans extends Component {
                     <View style={styles.planFooterView}>
                         <Text style={styles.planFooterText}>Only 326 USD or 50,000 PKR</Text>
                         <View style={{width: '30%'}} >
-                            <TouchableOpacity style={styles.signUpButton}>
-                                <Text style={{color: '#ffffff'}}>Sign Up</Text>
+                            <TouchableOpacity style={styles.signUpButton} >
+                                <Text style={{color: '#ffffff'}}>Subscribe</Text>
                             </TouchableOpacity>
                         </View>
                         
@@ -69,7 +69,7 @@ class SubscriptionPlans extends Component {
                         <Text style={styles.planFooterText}>Only 200 USD or 30,000 PKR</Text>
                         <View style={{width: '30%'}} >
                             <TouchableOpacity style={styles.signUpButton}>
-                                <Text style={{color: '#ffffff'}}>Sign Up</Text>
+                                <Text style={{color: '#ffffff'}}>Subscribe</Text>
                             </TouchableOpacity>
                         </View>
                         
@@ -101,7 +101,7 @@ class SubscriptionPlans extends Component {
                         <Text style={styles.planFooterText}>Only 110 USD or 16500 PKR</Text>
                         <View style={{width: '30%'}} >
                             <TouchableOpacity style={styles.signUpButton}>
-                                <Text style={{color: '#ffffff'}}>Sign Up</Text>
+                                <Text style={{color: '#ffffff'}}>Subscribe</Text>
                             </TouchableOpacity>
                         </View>
                         
@@ -132,7 +132,7 @@ class SubscriptionPlans extends Component {
                         <Text style={styles.planFooterText}>Only 38 USD or 5800 PKR</Text>
                         <View style={{width: '30%'}} >
                             <TouchableOpacity style={styles.signUpButton}>
-                                <Text style={{color: '#ffffff'}}>Sign Up</Text>
+                                <Text style={{color: '#ffffff'}}>Subscribe</Text>
                             </TouchableOpacity>
                         </View>
                         
