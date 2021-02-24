@@ -2,101 +2,69 @@ import React, { Component } from 'react';
 import { View, SafeAreaView, Text } from 'react-native';
 import styles from '../styles/home.styles';
 import { Tabs, TabScreen, useTabIndex, useTabNavigation } from 'react-native-paper-tabs';
-import { getAllRates } from '../services/app.service'
+import { getAllCategories, getAllCategoryRates } from '../services/app.service'
 
 class Home extends Component {
 
     state = {
+        allCategories: [],
         dataList: [],
     }
 
-    componentDidMount = async () => {
-        var item = {
-            item:'Imports',
-            location:'Canada',
-            description:'Description',
-            date:'22-01-2020',
-            rate:'10',
-            percentage:'2',
-            increase: true
-        }
-        var list = [];
-        for(let i=0; i<15; i++) {
-            list.push(item);
+    componentDidMount = async () => {        
+        //to fetch data from api
+        const requestOptions = {
+            method: 'GET',
+            headers: {'Content-Type' : 'application/json'},
         }
 
-        this.setState({
-            dataList: list
-        })
-        
-        //to fetch data from api
-        // const requestOptions = {
-        //     mehtod: 'GET',
-        //     headers: {'Content-Type' : 'application/json'},
-        // }
-        // const response = await getAllRates(requestOptions);
-        // const allRatesList = await response.json();
-        // console.log("response from getAllRates :: ", response)        
+        try {
+            const response = await getAllCategories(requestOptions);
+            const allCategoriesList = await response.json();
+            this.setState({
+                allCategories: allCategoriesList
+            })
+            // console.log("response from getAllCategories :: ", allCategoriesList)  
+        } catch(err) {
+            console.log("Error fetching data from getAllCategories :: ", err);
+        }
+        this.tabPressed(0);
+        // this.getRates()
     }
 
-    tabPressed = (item) => {
-        const tabValues = ['Imports', 'Sugar', 'Pulses', 'Grains', 'Fodder Seeds', 'Oil Seeds', 'Spices', 'Guar']
-
-        var item = {
-            item:tabValues[item],
-            location:'Canada',
-            description:'Description',
-            date:'22-01-2020',
-            rate:'10',
-            percentage:'2',
-            increase: true
-        }
-        var list = [];
-        for(let i=0; i<15; i++) {
-            list.push(item);
-        }
-
-        this.setState({
-            dataList: list
-        })
+    tabPressed = async(item) => {
+        const tabItems = this.state.allCategories;
+        const currentItem = tabItems[item];
+        // if(item) {    
+        //     const requestOptions = {
+        //         method: 'POST',
+        //         headers: {'Content-Type' : 'application/json'},
+        //         body: {
+        //             category: currentItem._id
+        //         }
+        //     }        
+        //     try {
+        //         const response = await getAllCategoryRates(requestOptions);
+        //         const allCategoriesList = await response.json();
+        //         // this.setState({
+        //         //     allCategories: allCategoriesList
+        //         // })
+        //         console.log("response from getAllCategories :: ", allCategoriesList)  
+        //     } catch(err) {
+        //         console.log("Error fetching data from getAllCategories :: ", err);
+        //     }
+        // }
     }
 
     render() {
         return (
             <Tabs style={styles.tabBg} mode="scrollable" onChangeIndex={(newIndex) => {this.tabPressed(newIndex)}}>
-                <TabScreen label="Imports">
-                    <ExploreWitHookExamples data={this.state.dataList}/>
-                </TabScreen>
-
-                <TabScreen label="Sugar">
-                    <ExploreWitHookExamples data={this.state.dataList} />
-                </TabScreen>
-
-                <TabScreen label="Pulses">
-                    <ExploreWitHookExamples data={this.state.dataList} />
-                </TabScreen>
-
-                <TabScreen label="Grains">
-                    <ExploreWitHookExamples data={this.state.dataList} />
-                </TabScreen>
-
-                <TabScreen label="Fodder Seeds">
-                    <ExploreWitHookExamples data={this.state.dataList} />
-                </TabScreen>
-
-                <TabScreen label="Oil Seeds">
-                    <ExploreWitHookExamples data={this.state.dataList} />
-                </TabScreen>
-
-                <TabScreen label="Spices">
-                    <ExploreWitHookExamples data={this.state.dataList} />
-                </TabScreen>
-
-                <TabScreen label="Guar">
-                    <ExploreWitHookExamples data={this.state.dataList} />
-                </TabScreen>
-            </Tabs>
-        
+                {this.state.allCategories.map((item) =>
+                    <TabScreen label={item.categoryNameEng}>
+                        <ExploreWitHookExamples data={this.state.dataList}/>
+                    </TabScreen>
+                )}
+            </Tabs>        
         )
     }
 }
@@ -151,3 +119,38 @@ function ExploreWitHookExamples(props) {
     );
 }
 
+// ***** FOR SCREENSHOT CAPTURE *****
+//
+// import * as ScreenCapture from 'expo-screen-capture';
+// import * as Permissions from 'expo-permissions';
+// import React from 'react';
+// import { Button, View, Platform } from 'react-native';
+
+// export default class ScreenCaptureExample extends React.Component {
+//   async componentDidMount() {
+//     // This permission is only required on Android
+//     const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+//     if (status === 'granted') {
+//       ScreenCapture.addScreenshotListener(() => {
+//         alert('Thanks for screenshotting my beautiful app 😊');
+//       });
+//     }
+//   }
+
+//   render() {
+//     return (
+//       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around' }}>
+//         <Button title="Activate" onPress={this._activate} />
+//         <Button title="Deactivate" onPress={this._deactivate} />
+//       </View>
+//     );
+//   }
+
+//   _activate = async () => {
+//     await ScreenCapture.preventScreenCaptureAsync();
+//   };
+
+//   _deactivate = async () => {
+//     await ScreenCapture.allowScreenCaptureAsync();
+//   };
+// }

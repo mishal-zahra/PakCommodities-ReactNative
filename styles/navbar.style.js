@@ -7,6 +7,8 @@ var styles = StyleSheet.create({
     backgroundColor: "#FFF"
   },
   navbar: {
+    padding: "5%",
+    paddingTop: "7%",
     flexDirection: 'row',
     backgroundColor: '#10ac84'
   },

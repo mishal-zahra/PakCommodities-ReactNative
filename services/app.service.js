@@ -1,5 +1,10 @@
 let baseUrl =  'http://192.168.100.8:3001/';
+let deployedServerUrl = 'http://188.34.187.30:39001/'
 
-export function getAllRates(data) {
-    return fetch( baseUrl + 'rates/allRates', data )
+export function getAllCategories(data) {
+    return fetch( deployedServerUrl + 'category/allCategory', data )
+}
+
+export function getAllCategoryRates(data) {
+    return fetch( deployedServerUrl + 'rates/allCategoryRates', data )
 }
