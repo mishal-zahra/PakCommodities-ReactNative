@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, Text, TouchableOpacity, TextInput, Dimensions } from 'react-native';
+import { SafeAreaView, View, Text, TouchableOpacity, TextInput, Dimensions, ToastAndroid } from 'react-native';
 import styles from '../styles/register.styles'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { register } from '../services/app.service'
 
 const screen = Dimensions.get("window"); //to set background height same as the screen
 
@@ -10,19 +11,15 @@ class Register extends Component {
 
     state = {
         dimensions: screen,
-        userName: '',
         email:'',
         fullName:'',
         phone:'',
         password:'',
-        subscriptionPlan:'',
         canRegister: false
     };    
 
     setField = (field, value) => {
-        if(field === 'username') {
-            this.setState({username : value})
-        } else if(field === 'email') {
+        if(field === 'email') {
             this.setState({email : value})
         } else if(field === 'fullName') {
             this.setState({fullName : value})
@@ -32,20 +29,40 @@ class Register extends Component {
             this.setState({password : value})
         }
         
-        if(this.state.username != '' && this.state.email != '' && this.state.fullName != '' && this.state.phone != '' && this.state.password != '') {
+        if(this.state.email != '' && this.state.fullName != '' && this.state.password != '') {
             this.setState({canRegister : true})
         } else {
             this.setState({canRegister : false})
         }
     }
 
-    onRegister = () => {
+    onRegister = async() => {
         if(this.state.canRegister) {
-            var registerObject = {username: this.state.username, email: this.state.email, fullName: this.state.fullName, phone: this.state.phone, status: 'inactive', password: this.state.password}
+            var registerObject = {
+                email: this.state.email, 
+                name: this.state.fullName, 
+                phoneNumber: this.state.phone, 
+                status: 'inactive', 
+                password: this.state.password,
+                subscribedPlan: null,
+            }
             //call login api and send registerObject
-            console.log("Call register api :: ", registerObject)
+            const requestOptions = {
+                method: 'POST',
+                headers: {'Content-Type' : 'application/json'},
+                body: registerObject
+            }
+    
+            try {
+                const response = await register(requestOptions);
+                const res = await response.json();
+                console.log("response from register :: ", res)  
+            } catch(err) {
+                console.log("Error fetching data from register :: ", err);
+            }
+            console.log("Called register api :: ", registerObject)
         } else {
-            console.log("Cannot register")
+            ToastAndroid.show("Fill out all the required fields to register!", ToastAndroid.SHORT);
         }
     }
 
@@ -57,11 +74,12 @@ class Register extends Component {
                     <Text style={styles.headText}>Sign Up for our Premium Services</Text>
                 </TouchableOpacity>
                 <View>
+
                     <TextInput 
                         style={styles.textField} 
-                        placeholder="* Username" 
+                        placeholder="* Full Name" 
                         placeholderTextColor="#10ac84"
-                        onChangeText={text => this.setField('username', text)}
+                        onChangeText={text => this.setField('fullName', text)}
                     />
 
                     <TextInput 
@@ -73,14 +91,7 @@ class Register extends Component {
 
                     <TextInput 
                         style={styles.textField} 
-                        placeholder="* Full Name" 
-                        placeholderTextColor="#10ac84"
-                        onChangeText={text => this.setField('fullName', text)}
-                    />
-
-                    <TextInput 
-                        style={styles.textField} 
-                        placeholder="* Phone" 
+                        placeholder="Phone" 
                         placeholderTextColor="#10ac84"
                         onChangeText={text => this.setField('phone', text)}
                     />

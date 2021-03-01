@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, Text, TouchableOpacity, TextInput, Dimensions } from 'react-native';
+import { SafeAreaView, View, Text, TouchableOpacity, TextInput, Dimensions, ToastAndroid } from 'react-native';
 import styles from '../styles/login.styles'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
@@ -28,7 +28,7 @@ class Login extends Component {
             //call login api and send loginObject
             console.log("Call login api :: ", loginObject)
         } else {
-            console.log("Cannot login")
+            ToastAndroid.show("Fill out all the required fields to login!", ToastAndroid.SHORT);
         }
     }
 
@@ -57,14 +57,14 @@ class Login extends Component {
                 <View>
                     <TextInput 
                         style={styles.textField} 
-                        placeholder="Email / Username" 
+                        placeholder="* Email" 
                         placeholderTextColor="#10ac84"
                         onChangeText={text => this.setField('username', text)}
                     />
 
                     <TextInput 
                         style={styles.textField} 
-                        placeholder="Password" 
+                        placeholder="* Password" 
                         placeholderTextColor="#10ac84"
                         onChangeText={text => this.setField('password', text)}
                     />

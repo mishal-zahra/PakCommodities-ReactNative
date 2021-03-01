@@ -13,9 +13,9 @@ var styles = StyleSheet.create({
         backgroundColor:"#dadbd9",
         borderRadius:25,
         height:50,
-        marginBottom:20,
+        marginBottom:15,
         justifyContent:"center",
-        padding:20,
+        padding:15,
         marginLeft: 35
     },
     forgotPassword: {

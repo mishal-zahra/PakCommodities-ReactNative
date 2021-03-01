@@ -14,7 +14,7 @@ class Sidebar extends React.Component {
             <SafeAreaView>
                 <Image 
                     source={require('../assets/logo_updated2.png')} 
-                    style={{width: undefined, padding: 50, paddingTop: 90}}
+                    style={{width: null, height: null, padding: 50, paddingTop: 90}}
                 />
                 <ScrollView>
                     <DrawerNavigatorItems {...this.props} />
