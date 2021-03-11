@@ -3,6 +3,7 @@ import { SafeAreaView, View, Text, TouchableOpacity, TextInput, Dimensions, Toas
 import styles from '../styles/login.styles'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { login } from '../services/app.service'
 
 const screen = Dimensions.get("window"); //to set background height same as the screen
 
@@ -22,11 +23,25 @@ class Login extends Component {
         })
     }
 
-    onLogin = () => {
+    onLogin = async() => {
         if(this.state.canLogin) {
             var loginObject = {username: this.state.username, password: this.state.password}
             //call login api and send loginObject
-            console.log("Call login api :: ", loginObject)
+            //to fetch data from api
+            const requestOptions = {
+                method: 'POST',
+                headers: {'Content-Type' : 'application/json'},
+                body: loginObject
+            }
+
+            try {
+                const response = await login(requestOptions);
+                const loginResponse = await response.json();
+                console.log("response from login :: ", loginResponse)  
+            } catch(err) {
+                console.log("Error in response of login :: ", err);
+            }
+            // console.log("Call login api :: ", loginObject)
         } else {
             ToastAndroid.show("Fill out all the required fields to login!", ToastAndroid.SHORT);
         }
@@ -46,6 +61,10 @@ class Login extends Component {
         }
     }
 
+    bannerError = (e) => {
+        alert(e);
+    }
+
     render() {
         return (
             // ************************** For Login Form ***********************
@@ -57,7 +76,7 @@ class Login extends Component {
                 <View>
                     <TextInput 
                         style={styles.textField} 
-                        placeholder="* Email" 
+                        placeholder="* Username / Email" 
                         placeholderTextColor="#10ac84"
                         onChangeText={text => this.setField('username', text)}
                     />
@@ -75,7 +94,8 @@ class Login extends Component {
             
                 <TouchableOpacity style={styles.loginButton} onPress={this.onLogin}>
                     <Text style={{color: 'white'}}>LOGIN</Text>
-                </TouchableOpacity>                
+                </TouchableOpacity>      
+
             </SafeAreaView>
         )
     }

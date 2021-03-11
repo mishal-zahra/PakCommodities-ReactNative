@@ -35,25 +35,25 @@ class Home extends Component {
     tabPressed = async(item) => {
         const tabItems = this.state.allCategories;
         const currentItem = tabItems[item];
-        // if(item) {    
-        //     const requestOptions = {
-        //         method: 'POST',
-        //         headers: {'Content-Type' : 'application/json'},
-        //         body: {
-        //             category: currentItem._id
-        //         }
-        //     }        
-        //     try {
-        //         const response = await getAllCategoryRates(requestOptions);
-        //         const allCategoriesList = await response.json();
-        //         // this.setState({
-        //         //     allCategories: allCategoriesList
-        //         // })
-        //         console.log("response from getAllCategories :: ", allCategoriesList)  
-        //     } catch(err) {
-        //         console.log("Error fetching data from getAllCategories :: ", err);
-        //     }
-        // }
+        if(item) {    
+            const requestOptions = {
+                method: 'POST',
+                headers: {'Content-Type' : 'application/json'},
+                body: {
+                    category: currentItem._id
+                }
+            }        
+            try {
+                const response = await getAllCategoryRates(requestOptions);
+                const allCategoriesList = await response.json();
+                // this.setState({
+                //     allCategories: allCategoriesList
+                // })
+                console.log("response from getAllCategories :: ", allCategoriesList)  
+            } catch(err) {
+                console.log("Error fetching data from getAllCategories :: ", err);
+            }
+        }
     }
 
     render() {
