@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, SafeAreaView, Text } from 'react-native';
 import styles from '../styles/home.styles';
 import { Tabs, TabScreen, useTabIndex, useTabNavigation } from 'react-native-paper-tabs';
-import { getAllCategories, getAllCategoryRates } from '../services/app.service'
+import { getAllCategories, getAllCategoryRates } from '../services/app.service';
 
 class Home extends Component {
 
@@ -12,14 +12,8 @@ class Home extends Component {
     }
 
     componentDidMount = async () => {        
-        //to fetch data from api
-        const requestOptions = {
-            method: 'GET',
-            headers: {'Content-Type' : 'application/json'},
-        }
-
         try {
-            const response = await getAllCategories(requestOptions);
+            const response = await getAllCategories();
             const allCategoriesList = await response.json();
             this.setState({
                 allCategories: allCategoriesList

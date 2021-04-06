@@ -101,7 +101,9 @@ class Register extends Component {
                         placeholder="* Password" 
                         placeholderTextColor="#10ac84"
                         onChangeText={text => this.setField('password', text)}
-                    />                    
+                    />
+                    
+                                    
                 </View>
 
                 <TouchableOpacity style={styles.loginButton} onPress={this.onRegister}>
